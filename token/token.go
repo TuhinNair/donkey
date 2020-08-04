@@ -50,4 +50,6 @@ const (
 	RETURN    = "RETURN"
 	IF        = "IF"
 	ELSE      = "ELSE"
+	EQ        = "=="
+	NOT_EQ    = "!="
 )
