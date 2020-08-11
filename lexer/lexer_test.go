@@ -9,7 +9,7 @@ func TestNextToken(t *testing.T) {
 	input := `donk five = 5;
 	donk ten = 10;
 
-	donk add = dn(x, y) {x + y;};
+	donk add = fn(x, y) {x + y;};
 
 	donk result = add(five, ten);
 	!-/*5;
@@ -42,7 +42,7 @@ func TestNextToken(t *testing.T) {
 		{token.DONK, "donk"},
 		{token.IDENT, "add"},
 		{token.ASSIGN, "="},
-		{token.FUNCTION, "dn"},
+		{token.FUNCTION, "fn"},
 		{token.LPAREN, "("},
 		{token.IDENT, "x"},
 		{token.COMMA, ","},
