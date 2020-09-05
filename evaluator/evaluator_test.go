@@ -228,6 +228,32 @@ func TestFunctionObject(t *testing.T) {
 	}
 }
 
+func TestFunctionApplication(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected int64
+	}{
+		{"donk identity = fn(x) { x; }; identity(5);", 5},
+		{"donk identity = fn(x) { return x; }; identity(5);", 5},
+		{"donk double = fn(x) { x * 2; }; double(5);", 10},
+		{"donk add = fn(x, y) { x + y; }; add(5, 5);", 10},
+		{"donk add = fn(x, y) { x + y; }; add(5 + 5, add(5, 5));", 20},
+		{"fn(x) { x; }(5)", 5},
+	}
+
+	for _, tt := range tests {
+		testIntegerObject(t, testEval(tt.input), tt.expected)
+	}
+}
+
+func TestClosures(t *testing.T) {
+	input := `
+	donk newAdder = fn(x) {fn(y) { x + y };};
+	donk addTwo = newAdder(2);
+	addTwo(2);`
+	testIntegerObject(t, testEval(input), 4)
+}
+
 func TestDonkStatement(t *testing.T) {
 	tests := []struct {
 		input    string
