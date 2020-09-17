@@ -44,6 +44,8 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
+	LBRACKET  = "["
+	RBRACKET  = "]"
 	FUNCTION  = "FUNCTION"
 	DONK      = "DONK"
 	TRUE      = "TRUE"
