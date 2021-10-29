@@ -55,4 +55,5 @@ const (
 	ELSE      = "ELSE"
 	EQ        = "=="
 	NOT_EQ    = "!="
+	COLON     = ":"
 )
